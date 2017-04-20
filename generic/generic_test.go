@@ -24,10 +24,14 @@ func TestGeneric(t *testing.T) {
 	list.Add(p2)
 	list.Add(p3)
 	t.Log(list)
+	//out
+	//{[{1 zhangsan} {2 lisi} {3 wangwu}]}
 
 	p4 := person{"1", "zhangsan11"}
 	list.Remove(p4)
 	t.Log(list)
+	//out
+	//{[{2 lisi} {3 wangwu}]}
 
 	list.RemoveAll(func(a interface{}) bool {
 		if p, ok := a.(person); ok {
@@ -36,4 +40,6 @@ func TestGeneric(t *testing.T) {
 		return false
 	})
 	t.Log(list)
+	//out
+	//{[{3 wangwu}]}
 }
